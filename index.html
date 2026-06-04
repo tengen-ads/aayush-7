@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SureShot By Radhe</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+body{
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.container{
+width:390px;
+max-width:100%;
+padding:20px;
+text-align:center;
+}
+
+.image-box{
+border:1px solid #00aaff;
+padding:15px;
+margin-bottom:10px;
+}
+
+.image-box img{
+width:100%;
+border-radius:50%;
+max-width:260px;
+}
+
+.btn{
+display:block;
+width:100%;
+background:#d4d000;
+color:#fff;
+font-size:30px;
+font-weight:bold;
+padding:16px;
+border-radius:40px;
+text-decoration:none;
+border:2px solid #00aaff;
+margin:12px 0;
+}
+
+.warning{
+color:red;
+font-size:18px;
+line-height:1.6;
+margin:15px 0;
+font-weight:bold;
+}
+
+.timer{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:20px;
+color:red;
+}
+
+.time-box{
+text-align:center;
+}
+
+.number{
+font-size:28px;
+font-weight:bold;
+}
+
+.label{
+font-size:14px;
+margin-top:5px;
+}
+
+@media(max-width:480px){
+
+.btn{
+font-size:22px;
+padding:14px;
+}
+
+.warning{
+font-size:16px;
+}
+
+.number{
+font-size:22px;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="image-box">
+<img src="YOUR_IMAGE_LINK_HERE" alt="">
+</div>
+
+<a href="YOUR_LINK_HERE" class="btn">
+Start Earning Today
+</a>
+
+<div class="warning">
+कोर्स फेक है ☺️ कर कर टेंशन ने किस्मत नहीं है बदली जा सकती<br>
+10 दिन में लिंक मेरे चैनल से खरीद होगी खेले।
+</div>
+
+<a href="YOUR_LINK_HERE" class="btn">
+Start Earning Today
+</a>
+
+<div class="timer">
+
+<div class="time-box">
+<div class="number" id="days">00</div>
+<div class="label">DAYS</div>
+</div>
+
+<div class="time-box">
+<div class="number" id="hours">00</div>
+<div class="label">HOURS</div>
+</div>
+
+<div class="time-box">
+<div class="number" id="minutes">00</div>
+<div class="label">MINUTES</div>
+</div>
+
+<div class="time-box">
+<div class="number" id="seconds">00</div>
+<div class="label">SECONDS</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let endDate = new Date();
+endDate.setHours(endDate.getHours()+2);
+
+function updateTimer(){
+
+let now = new Date().getTime();
+let distance = endDate - now;
+
+let days = Math.floor(distance/(1000*60*60*24));
+let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+let seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").innerHTML =
+String(days).padStart(2,'0');
+
+document.getElementById("hours").innerHTML =
+String(hours).padStart(2,'0');
+
+document.getElementById("minutes").innerHTML =
+String(minutes).padStart(2,'0');
+
+document.getElementById("seconds").innerHTML =
+String(seconds).padStart(2,'0');
+
+}
+
+setInterval(updateTimer,1000);
+updateTimer();
+
+</script>
+
+</body>
+</html>
